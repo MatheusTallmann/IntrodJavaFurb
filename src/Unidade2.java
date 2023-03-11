@@ -1,10 +1,10 @@
 import java.util.Scanner;
 
 public class Unidade2 {
-    
+
     public static void main(String[] args)
     {    
-        Exercise2(args);
+        Exercise3(args);
     }
 
     public static void Exercise1(String[] args)
@@ -44,14 +44,13 @@ public class Unidade2 {
     {
         Scanner readLine = new Scanner(System.in);
 
-        System.out.println("Insira um número inteiro:");
-        int number1 = readLine.nextInt();
-        System.out.println("Insira um número inteiro:");
-        int number2 = readLine.nextInt();
-           
+        System.out.println("Insira valor do raio:");
+        
+        double number1 = readLine.nextDouble();
         readLine.close();
-        int sum = number1 * number2;
+           
+        double area = (number1 * number1) * 3.14;
 
-        System.out.println("A multiplicação de "+number1+" e "+number2+" é: "+sum);
+        System.out.println("O valor da área da circunferência é de: "+area+"m²");
     }
 }
