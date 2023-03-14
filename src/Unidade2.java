@@ -170,8 +170,44 @@ public class Unidade2 {
         System.out.println("O total a pagar é de: R$"+df.format(totalAPagar));
     }
 
+    public static void Exercise9(String[] args)
+    // Uma pessoa foi até uma casa de câmbio trocar dólares por reais. Para isto ela entregou um valor em dólares para o atendente. 
+    // Considerando que o atendente tem a cotação do dólar, calcule quantos reais o atendente deve devolver para a pessoa.
+    {
+        Scanner readLine = new Scanner(System.in);
+        DecimalFormat df = new DecimalFormat("#,###.00");
+
+        System.out.print("Informe a quantidade de dólares a serem trocados:");
+        double vlrDolar = readLine.nextDouble();
+
+        readLine.close();
+
+        double vlrReais = vlrDolar * 5.25;
+
+        System.out.println("O total a ser recebido é de: R$"+df.format(vlrReais));
+    }
+
+    public static void Exercise10(String[] args)
+    // Leia um valor inteiro, que é o tempo de duração em segundos de um determinado evento em uma fábrica, e informe-o expresso no formato horas:minutos:segundos.
+    {
+        Scanner readLine = new Scanner(System.in);
+        DecimalFormat df = new DecimalFormat("00");
+
+        System.out.print("Informe a quantidade de segundos a serem convertidos:");
+        double qtdSegundos = readLine.nextDouble();
+
+        readLine.close();
+
+        double qtdMinutos = qtdSegundos / 60;
+        qtdSegundos = qtdSegundos - (qtdMinutos * 60); 
+        double qtdHoras = qtdMinutos / 60;
+        qtdMinutos = qtdMinutos - (qtdHoras * 60); 
+
+        System.out.println("O tempo total é de: "+df.format(qtdHoras)+":"+df.format(qtdMinutos)+":"+df.format(qtdSegundos));
+    }
+
     public static void main(String[] args)
     {    
-        Exercise8(args);
+        Exercise10(args);
     }
 }
