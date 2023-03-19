@@ -194,18 +194,17 @@ public class Unidade2 {
         DecimalFormat df = new DecimalFormat("00");
 
         System.out.print("Informe a quantidade de segundos a serem convertidos:");
-        double qtdSegundos = readLine.nextDouble();
+        int qtdSegundos = readLine.nextInt();
 
         readLine.close();
-
-        double qtdMinutos = qtdSegundos / 60;
-        qtdSegundos = qtdSegundos - (qtdMinutos * 60); 
-        double qtdHoras = qtdMinutos / 60;
-        qtdMinutos = qtdMinutos - (qtdHoras * 60); 
+        
+        int qtdHoras = qtdSegundos / 3600;
+        qtdSegundos %= 3600;
+        int qtdMinutos = qtdSegundos / 60;
+        qtdSegundos %= 60;
 
         System.out.println("O tempo total é de: "+df.format(qtdHoras)+":"+df.format(qtdMinutos)+":"+df.format(qtdSegundos));
     }
-
     public static void main(String[] args)
     {    
         Exercise10(args);
