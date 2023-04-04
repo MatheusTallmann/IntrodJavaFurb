@@ -3,7 +3,7 @@ import java.text.DecimalFormat;
 
 public class Unidade2 {
 
-    public static void Exercise1(String[] args)
+    public static void Uni2Exercise1(String[] args)
     // Leia 2 valores inteiros e imprima sua soma.
     {
         Scanner readLine = new Scanner(System.in);
@@ -19,7 +19,7 @@ public class Unidade2 {
         System.out.println("A soma de "+number1+" e "+number2+" é: "+sum);
     }
 
-    public static void Exercise2(String[] args)
+    public static void Uni2Exercise2(String[] args)
     // Leia 2 valores inteiros e imprima sua multiplicação.
     {
         Scanner readLine = new Scanner(System.in);
@@ -35,7 +35,7 @@ public class Unidade2 {
         System.out.println("A multiplicação de "+number1+" e "+number2+" é: "+sum);
     }
 
-    public static void Exercise3(String[] args)
+    public static void Uni2Exercise3(String[] args)
     // Calcule a área da circunferência elevando o valor de raio ao quadrado e multiplicando por π (π = 3.14159).
     {
         Scanner readLine = new Scanner(System.in);
@@ -50,7 +50,7 @@ public class Unidade2 {
         System.out.println("O valor da área da circunferência é de: "+area+"m²");
     }
     
-    public static void Exercise4(String[] args)
+    public static void Uni2Exercise4(String[] args)
     // Leia dois valores de ponto flutuante e calcule a média ponderada sabendo que a nota A tem peso 3.5 e nota B 7.5 
     // (a soma dos pesos é 11), sendo que a nota vai de 0.0 a 10.0.
     {
@@ -70,7 +70,7 @@ public class Unidade2 {
         System.out.println("A média ponderada é: "+df.format(media));
     }
 
-    public static void Exercise5(String[] args)
+    public static void Uni2Exercise5(String[] args)
     // Leia quatro valores inteiros A, B, C e D. A seguir, calcule e mostre a diferença do produto de A e B pelo produto de C e D 
     // segundo a fórmula: DIFERENCA = (A * B - C * D).
     {
@@ -95,7 +95,7 @@ public class Unidade2 {
         System.out.println("A média ponderada é: "+(diferenca));
     }
 
-    public static void Exercise6(String[] args)
+    public static void Uni2Exercise6(String[] args)
     // Escreva um programa que leia o número de um funcionário, seu número de horas trabalhadas, 
     // o valor que recebe por hora e calcula o salário desse funcionário. A seguir, mostre o número e o salário do funcionário, com duas casas decimais.
     {
@@ -115,7 +115,7 @@ public class Unidade2 {
         System.out.println("Seu salário mensal é de: R$"+df.format(salario));
     }
 
-    public static void Exercise7(String[] args)
+    public static void Uni2Exercise7(String[] args)
     // Faça um programa que leia o nome de um vendedor, o seu salário fixo e o total de vendas efetuadas por ele no mês (em dinheiro). 
     // Sabendo que este vendedor ganha 15% de comissão sobre suas vendas efetuadas, informar o total a receber no final do mês, com duas casas decimais.
     {
@@ -138,7 +138,7 @@ public class Unidade2 {
         System.out.println("O salário de "+nome+" neste mês é de: R$"+df.format(salarioTotal));
     }
 
-    public static void Exercise8(String[] args)
+    public static void Uni2Exercise8(String[] args)
     // Neste problema, deve-se ler o código de uma peça 1, o número de peças 1, o valor unitário de cada peça 1, o código de uma peça 2, 
     // o número de peças 2 e o valor unitário de cada peça 2. Após, calcule e mostre o valor a ser pago.
     {
@@ -170,7 +170,7 @@ public class Unidade2 {
         System.out.println("O total a pagar é de: R$"+df.format(totalAPagar));
     }
 
-    public static void Exercise9(String[] args)
+    public static void Uni2Exercise9(String[] args)
     // Uma pessoa foi até uma casa de câmbio trocar dólares por reais. Para isto ela entregou um valor em dólares para o atendente. 
     // Considerando que o atendente tem a cotação do dólar, calcule quantos reais o atendente deve devolver para a pessoa.
     {
@@ -187,7 +187,7 @@ public class Unidade2 {
         System.out.println("O total a ser recebido é de: R$"+df.format(vlrReais));
     }
 
-    public static void Exercise10(String[] args)
+    public static void Uni2Exercise10(String[] args)
     // Leia um valor inteiro, que é o tempo de duração em segundos de um determinado evento em uma fábrica, e informe-o expresso no formato horas:minutos:segundos.
     {
         Scanner readLine = new Scanner(System.in);
@@ -207,6 +207,6 @@ public class Unidade2 {
     }
     public static void main(String[] args)
     {    
-        Exercise10(args);
+        Uni2Exercise10(args);
     }
 }
