@@ -1,6 +1,5 @@
 import java.util.Scanner;
 import java.text.DecimalFormat; 
-
 public class Unidade3 {
 
     public static void Uni3Exercise1(String[] args)
@@ -28,7 +27,7 @@ public class Unidade3 {
     O preço do par de sapatos com desconto é R$ xxx */
     {
         Scanner readline = new Scanner(System.in);
-        DecimalFormat df_2 = new DecimalFormat("0.00");
+        DecimalFormat df = new DecimalFormat("0.00");
 
         System.out.println("Informe o preço do par de sapatos");
         double preco = readline.nextDouble();
@@ -36,8 +35,8 @@ public class Unidade3 {
         double vlrDesconto = preco * 12 / 100;
         double precoFinal = preco - vlrDesconto;
 
-        System.out.println("O valor do desconto é de R$:" + df_2.format(vlrDesconto));
-        System.out.println("O preço do par de sapatos com desconto é R$:" + df_2.format(precoFinal));
+        System.out.println("O valor do desconto é de R$:" + df.format(vlrDesconto));
+        System.out.println("O preço do par de sapatos com desconto é R$:" + df.format(precoFinal));
         
         readline.close();
     }
@@ -198,10 +197,140 @@ public class Unidade3 {
     /*Descreva um programa que dado uma temperatura em °C informe o seu valor em °F. Fórmula:
     °F = (9/5) °C + 32*/
     {
+        Scanner readline = new Scanner(System.in);
+        DecimalFormat df = new DecimalFormat("0");   
+
+        System.out.println("Insira a temperatura em graus Celsius: ");
+        double grausCelsius = readline.nextDouble();
+
+        double grausFarenheit = (grausCelsius * 1.8) + 32;
+
+        System.out.println("A temperatura de "+df.format(grausCelsius)+"°C, em Farenheit é de: "+df.format(grausFarenheit)+"ºF");
+
+        readline.close();
+    }
+
+    public static void Uni3Exercise12(String[] args)
+    /*Uma empresa tem para um funcionário os seguintes dados: o nome, o número de horas trabalhadas mensais e o número de dependentes. 
+    A empresa paga R$ 10,00 por hora (valor para cálculo do salário trabalho) e R$ 60,00 por dependente (valor para cálculo do salário família) 
+    e são feitos descontos de 8,5% sobre o salário trabalho para o INSS e de 5% sobre o salário trabalho para o imposto de renda. Descreva um programa que 
+    informe o nome, o salário bruto e o salário líquido do funcionário.*/
+    {
+        Scanner readline = new Scanner(System.in);
+        DecimalFormat df = new DecimalFormat("###,##0.00");   
+
+        System.out.println("Informe o nome do funcionário: ");
+        String nomeFuncionario = readline.next();
+
+        System.out.println("Informe a quantidade de horas trabalhadas no mês: ");
+        int horasMes = readline.nextInt();
+
+        System.out.println("Informe a quantidade de dependentes que o funcionário possui: ");
+        int qtdDependentes = readline.nextInt();
+
+        double salarioBruto = (horasMes * 10) + (qtdDependentes * 60);
         
+        double salarioLiquido = ((horasMes * 10) * 0.865) + (qtdDependentes * 60);
+
+        System.out.println("Funcionário: "+nomeFuncionario+"\nSalário bruto: R$"+df.format(salarioBruto)+"\nSalário liquido: R$"+df.format(salarioLiquido)+"");
+
+        readline.close();
+    }
+
+    public static void Uni3Exercise13(String[] args)
+    /*Numa loja de materiais de construção, um azulejo estampado custa R$ 12,50. Faça um programa para ler o comprimento e altura de uma parede (em metros), 
+    e depois escrever o valor gasto com a compra de azulejos. Considere que um metro quadrado é formado por 9 azulejos.*/
+    {
+        Scanner readline = new Scanner(System.in);
+        DecimalFormat df = new DecimalFormat("###,##0.00");   
+
+        System.out.println("Informe o comprimento da parede: ");
+        double comprimento = readline.nextDouble();
+
+        System.out.println("Informe a altura da parede: ");
+        double altura = readline.nextDouble();
+
+        double totalGasto = (comprimento * altura) * (9 * 12.5);
+
+        System.out.println("O total gasto com a compra de azuleijos é de: R$"+df.format(totalGasto));
+
+        readline.close();
+    }
+
+    public static void Uni3Exercise14(String[] args)
+    /*Descreva um programa que a partir da distância percorrida e o do tempo gasto por um motorista durante uma viagem de final de semana, 
+    calcule a velocidade média e a quantidade de combustível gasto na viagem, sabendo que o automóvel faz 12 km por litro.*/
+    {
+        Scanner readline = new Scanner(System.in);
+        DecimalFormat df = new DecimalFormat("0.0"); 
+
+        System.out.println("Informe a distância percorrida (em Km): ");
+        double distanciaKm = readline.nextDouble();
+
+        System.out.println("Informe o tempo que durou a viagem (em Horas): ");
+        double tempoHrs = readline.nextDouble();
+
+        double velocidadeMedia = distanciaKm / tempoHrs;
+
+        double combustivelGasto = distanciaKm / 12;
+
+        System.out.println("Velocidade média da viagem: "+df.format(velocidadeMedia)+"km/h\nQuantidade de combustível gasto na viagem: "+df.format(combustivelGasto)+" litros");
+
+        readline.close();
+    }
+
+    public static void Uni3Exercise15(String[] args)
+    /*Construa um programa para ler um número inteiro (assuma até 3 dígitos) e imprima a saída da seguinte forma:
+     X centena(s)  Y dezena(s) K unidade(s)  
+     Exemplo, se for submetido o número 384, o programa deverá exibir:
+     3 centena(s)  8 dezena(s) 4 unidade(s) 
+    */
+    {
+        Scanner readline = new Scanner(System.in);
+
+        System.out.println("Informe um número de 3 dígitos: ");
+        int numero = readline.nextInt();
+
+        int centenas = numero / 100;
+        numero %= 100;
+
+        int dezenas = numero / 10;
+        numero %= 10;
+
+        int unidades = numero / 1;
+        numero %= 1;
+
+        System.out.println(centenas+" Centena(s) "+dezenas+" Dezena(s) "+unidades+" Unidade(s)");
+
+        readline.close();
+    }
+
+    public static void Uni3Exercise16(String[] args)
+    /*Suponha que um caixa disponha apenas de notas de 100, 10 e 1 reais. Considerando que alguém está pagando uma compra, faça um programa que determine e
+     escreva o número mínimo de notas que o caixa deve fornecer como troco. Escreva também o número de cada tipo de nota a ser fornecido como troco. 
+     Suponha que o sistema monetário não utilize centavos.
+    */
+    {
+        Scanner readline = new Scanner(System.in);
+
+        System.out.println("Informe a quantidade de troco a ser retornado: ");
+        int troco = readline.nextInt();
+
+        int centenas = troco / 100;
+        troco %= 100;
+
+        int dezenas = troco / 10;
+        troco %= 10;
+
+        int unidades = troco / 1;
+        troco %= 1;
+
+        System.out.println(+centenas+" Nota(s) de cem\n"+dezenas+" Nota(s) de dez\n"+unidades+" Nota(s) de um");
+
+        readline.close();
     }
     public static void main(String[] args)
     {    
-        Uni3Exercise11(args);
+        Uni3Exercise16(args);
     }
 }
