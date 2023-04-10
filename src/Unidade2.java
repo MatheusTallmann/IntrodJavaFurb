@@ -1,7 +1,8 @@
 import java.util.Scanner;
 import java.text.DecimalFormat; 
 
-public class Unidade2 {
+public class Unidade2 
+{
 
     public static void Uni2Exercise1(String[] args)
     // Leia 2 valores inteiros e imprima sua soma.
@@ -146,7 +147,7 @@ public class Unidade2 {
         DecimalFormat df = new DecimalFormat("#,###.00");
 
         System.out.print("Insira o código da peça 1:");
-        int codPeca1 = readLine.nextInt();
+        // int codPeca1 = readLine.nextInt();
 
         System.out.print("Informe a quantidade de peças 1:");
         int qtdPecas1 = readLine.nextInt();
@@ -155,7 +156,7 @@ public class Unidade2 {
         double vlrPeca1 = readLine.nextDouble();
         
         System.out.print("Insira o código da peça 2:");
-        int codPeca2 = readLine.nextInt();
+        // int codPeca2 = readLine.nextInt();
 
         System.out.print("Informe a quantidade de peças 2:");
         int qtdPecas2 = readLine.nextInt();
