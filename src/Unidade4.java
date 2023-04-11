@@ -127,10 +127,10 @@ public class Unidade4
     {
         Scanner readline = new Scanner(System.in);
         
-        System.out.print("A cor é azul? ");
+        System.out.print("Insira um caracter: ");
         String resposta = readline.next(); 
 
-        switch (resposta) 
+        switch (resposta.toUpperCase()) 
         {
             case "M" :         
             System.out.println("Masculino");
@@ -151,8 +151,73 @@ public class Unidade4
         readline.close();
     }
 
+    public static void Uni4Exercise7(String[] args)
+    /*O custo do selo de uma carta com até 50 gramas é de R$ 0,45. As cartas com peso superior pagam um adicional de R$ 0,45 por cada 20 gramas, 
+    ou fração, em que excedem aquele peso. Escreva um algoritmo que dado o peso da carta, em gramas, determine o custo do selo.
+    Para resolver este problema pode se utilizar do algoritmo descrito no fluxograma*/
+    {
+        Scanner readline = new Scanner(System.in);
+        DecimalFormat df = new DecimalFormat("###,##0.00");
+
+        System.out.print("Insira o peso da carta (em gramas): ");
+        int pesoCarta = readline.nextInt(); 
+        double vlrSelo = 0;
+
+        if(pesoCarta <= 50)
+        {
+            vlrSelo = 0.45;
+        }
+        else
+        {
+            vlrSelo = 0.45 + (Math.floor((pesoCarta - 50) / 20) * 0.45);
+        }
+
+        System.out.print("O custo do selo é de: "+df.format(vlrSelo));
+
+        readline.close();
+    }
+
+    public static void Uni4Exercise8(String[] args)
+    /*Dado uma letra, escreva um algoritmo que informe se ela é ou não uma vogal.
+    Para resolver este problema pode se utilizar do algoritmo descrito no fluxograma:*/
+    {
+        Scanner readline = new Scanner(System.in);
+        
+        System.out.print("Insira uma letra: ");
+        String resposta = readline.next(); 
+
+        if(resposta.toUpperCase().equals("A") || resposta.toUpperCase().equals("E") || resposta.toUpperCase().equals("I")|| resposta.toUpperCase().equals("O") || resposta.toUpperCase().equals("U"))
+        {
+            System.out.println("É uma vogal!");
+        }
+        else
+        {
+            System.out.println("Não é uma vogal!");
+        }
+
+        readline.close();
+    }
+
+    public static void Uni4Exercise9(String[] args)
+    /*Dados dois valores inteiros, escreva um algoritmo que informe se eles são múltiplos ou não. */
+    {
+        Scanner readline = new Scanner(System.in);
+        
+        System.out.print("Insira um número: ");
+        double numero1 = readline.nextInt(); 
+
+        System.out.print("Insira outro número: ");
+        double numero2 = readline.nextInt(); 
+
+        if(numero1 % numero2 == 0 || numero2 % numero1 == 0)
+
+
+
+        readline.close();
+    }
+
     public static void main(String[] args)
     {    
-        Uni4Exercise6(args);
+        Uni4Exercise9(args);
     }
 }
