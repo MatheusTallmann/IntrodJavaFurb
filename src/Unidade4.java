@@ -539,7 +539,521 @@ public class Unidade4
     é cobrada uma multa de 2% por cada dia de atraso. Faça um algoritmo que leia o dia do vencimento, o dia do pagamento e o valor da prestação e calcule o valor a ser pago pelo cliente, 
     exibindo as devidas mensagens. Suponha que todo vencimento ocorre até o dia dez de cada mês e os clientes nunca deixam para pagar no mês seguinte.*/
     {
+        Scanner readline = new Scanner(System.in);
+        DecimalFormat df = new DecimalFormat("###,##0.00");
+
+        System.out.print("Informe o valor da prestação: ");
+        double valorPrestacao = readline.nextDouble();
+
+        System.out.print("Informe o dia do vencimento: ");
+        int diaVencimento = readline.nextInt(); 
+
+        System.out.print("Informe o dia do pagamento: ");
+        int diaPagamento = readline.nextInt(); 
+
+        if(diaVencimento >= diaPagamento)
+        {
+            valorPrestacao = valorPrestacao * 0.9;
+            System.out.print("Valor da prestação: R$"+df.format(valorPrestacao));
+        }
+        else if((diaPagamento - diaVencimento) <= 5)
+        {
+            System.out.print("Valor da prestação: R$"+df.format(valorPrestacao));
+        }
+        else
+        {
+            valorPrestacao = valorPrestacao + (valorPrestacao * ((diaPagamento - diaVencimento - 5) * 0.02));
+            System.out.print("Valor da prestação: R$"+df.format(valorPrestacao));
+        }
+
+        readline.close();
+    }
+
+    public static void Uni4Exercise19(String[] args)
+    /*Dadas as coordenadas (X e Y) de um Ponto, você deve informar em qual quadrante ele está localizado
+        0, se os dois valores forem zero
+        1, se os dois valores forem positivos
+        2, se x for positivo e y, negativo
+        3, se os dois valores forem negativos
+        4, se x for negativo e y, positivo*/
+    {
+        Scanner readline = new Scanner(System.in);
+
+        System.out.print("Informe as coordenadas x: ");
+        int x = readline.nextInt(); 
+
+        System.out.print("Informe as coordenadas y: ");
+        int y = readline.nextInt(); 
+
+        if(x == 0 && y == 0) /* 0, se os dois valores forem zero */
+        {
+            System.out.print("Está localizado no quadrante 0!: ");
+        }
+        else if(x > -1 && y > -1) /* 1, se os dois valores forem positivos */
+        {
+            System.out.print("Está localizado no quadrante 1!: ");
+        }
+        else if(x > -1 && y < 0) /* 2, se x for positivo e y, negativo */
+        {
+            System.out.print("Está localizado no quadrante 2!: ");
+        }
+        else if(x < 0 && y < 0) /* 3, se os dois valores forem negativos */
+        {
+            System.out.print("Está localizado no quadrante 3!: ");
+        }
+        else if(x < 0 && y >= 0) /* 4, se x for negativo e y, positivo */
+        {
+            System.out.print("Está localizado no quadrante 4!: ");
+        }
+
+        readline.close();
+    }
+
+    public static void Uni4Exercise20(String[] args)
+    /*Dadas 3 notas obtidas por um aluno em 3 provas e a média dos exercícios, descreva um algoritmo que calcule a média de aproveitamento e o conceito do aluno, usando a fórmula:
+        media = (notaProva1 + notaProva2 * 2 + notaProva3 * 3 + notaExercicios) / 7
         
+        A atribuição dos conceitos obedece à tabela abaixo:
+
+        media	           conceito
+        >= 9.0	            A
+        >= 7.5 e < 9.0	    B
+        >= 6.0 e < 7.5	    C
+        >= 4.0 e < 6.0	    D
+        < 4.0	            E
+
+        O algoritmo deve escrever a média de aproveitamento, o conceito correspondente e a mensagem "aprovado" caso o conceito seja A, B ou C, e "reprovado" caso o conceito seja D ou E.
+    */
+    {
+        Scanner readline = new Scanner(System.in);
+        DecimalFormat df = new DecimalFormat("0.0");
+        
+        System.out.print("Informe a nota da prova 1: ");
+        double notaProva1 = readline.nextDouble(); 
+
+        System.out.print("Informe a nota da prova 2: ");
+        double notaProva2 = readline.nextDouble(); 
+
+        System.out.print("Informe a nota da prova 3: ");
+        double notaProva3 = readline.nextDouble(); 
+
+        System.out.print("Informe a nota dos exercícios: ");
+        double notaExercicios = readline.nextDouble(); 
+
+        double media = (notaProva1 + notaProva2 * 2 + notaProva3 * 3 + notaExercicios) / 7;
+
+        if(media >= 9)
+        {
+            System.out.print("Média "+df.format(media)+" - Conceito Final A - Aprovado!");
+        }
+        else if(media < 9 && media >= 7.5)
+        {
+            System.out.print("Média "+df.format(media)+" - Conceito Final B - Aprovado!");
+        }
+        else if(media < 7.5 && media >= 6)
+        {
+            System.out.print("Média "+df.format(media)+" - Conceito Final C - Aprovado!");
+        }
+        else if(media < 6 && media >= 4)
+        {
+            System.out.print("Média "+df.format(media)+" - Conceito Final D - Reprovado!");
+        }
+        else if(media < 4)
+        {
+            System.out.print("Média "+df.format(media)+" - Conceito Final E - Reprovado!");
+        }
+
+        readline.close();
+    }
+
+    public static void Uni4Exercise21(String[] args)
+    /*O índice de massa corporal (IMC) é uma medida internacional usada para calcular se uma pessoa está no peso ideal. 
+    O IMC é determinado pela divisão da massa do indivíduo pelo quadrado de sua altura, onde a massa está em quilogramas e a altura está em metros, de acordo com a fórmula:
+    
+    IMC = massa / altura²
+
+    Faça um algoritmo para classificar o IMC e dizer o grau de obesidade do indivíduo, de acordo com a seguinte tabela:
+
+    IMC	            Classificação
+    < 18.5	        Magreza
+    18.5 - 24.9	    Saudável
+    25.0 - 29.9	    Sobrepeso
+    30.0 - 34.9	    Obesidade Grau I
+    35.0 - 39.9	    Obesidade Grau II (severa)
+    >= 40.0	        Obesidade Grau III (mórbida) 
+    
+    */
+    {
+        Scanner readline = new Scanner(System.in);
+        
+        System.out.print("Informe seu peso: ");
+        double peso = readline.nextDouble(); 
+
+        System.out.print("Informe sua altura: ");
+        double altura = readline.nextDouble(); 
+
+        double imc = peso / (altura * altura);
+
+        if(imc < 18.5)
+        {
+            System.out.print("Magreza");
+        }
+        else if(imc >= 18.5 && imc >= 24.9)
+        {
+            System.out.print("Saudável");
+        }
+        else if(imc >= 25.0 && imc >= 29.9)
+        {
+            System.out.print("Sobrepeso");
+        }
+        else if(imc >= 30.0 && imc >= 34.9)
+        {
+            System.out.print("Obesidade Grau I");
+        }
+        else if(imc >= 35.0 && imc >= 39.9)
+        {
+            System.out.print("Obesidade Grau II (severa)");
+        }
+        else if(imc >= 40.0	)
+        {
+            System.out.print("Obesidade Grau III (mórbida)");
+        }
+
+        readline.close();
+    }
+
+    public static void Uni4Exercise22(String[] args)
+    /*Um aluno está em dúvida sobre o título que vai receber após concluir seu curso de graduação. Considerando que o sistema apresenta 3 cursos disponíveis 
+    (1 – Ciência da Computação, 2 – Licenciatura da Computação e 3 – Sistemas de Informação) descreva um algoritmo para ler a opção do aluno e escrever uma mensagem informando 
+    o título que o aluno vai receber caso opte por aquele curso. As titulações são respectivamente: "Bacharel em Ciência da Computação", "Licenciado em Computação" e 
+    "Bacharel em Sistemas de Informação".
+    */
+    {
+        Scanner readline = new Scanner(System.in);
+        
+        System.out.print("Informe o código do curso: ");
+        int codCurso = readline.nextInt(); 
+
+        switch(codCurso) 
+        {
+            case 1 :         
+            System.out.println("Bacharel em Ciência da Computação");
+            break;
+
+            case 2 :         
+            System.out.println("Licenciado em Computação");
+            break;
+
+            case 3 :         
+            System.out.println("Bacharel em Sistemas de Informação");
+            break;
+
+            default:
+            System.out.println("Entrada incorreta");
+        }   
+
+        readline.close();
+    }
+
+    public static void Uni4Exercise23(String[] args)
+    /*Escreva um algoritmo que leia um número inteiro positivo representando um determinado mês do ano e escreva o mês por extenso. .
+    Para valores maiores do que 12 informe que o valor não é válido.".
+    */
+    {
+        Scanner readline = new Scanner(System.in);
+        
+        System.out.print("Informe o número do mês: ");
+        int mes = readline.nextInt(); 
+
+        switch(mes) 
+        {
+            case 1 :         
+            System.out.println("Janeiro");
+            break;
+
+            case 2 :         
+            System.out.println("Fevereiro");
+            break;
+
+            case 3 :         
+            System.out.println("Março");
+            break;
+
+            case 4 :         
+            System.out.println("Abril");
+            break;
+
+            case 5 :         
+            System.out.println("Maio");
+            break;
+
+            case 6 :         
+            System.out.println("Junho");
+            break;
+
+            case 7 :         
+            System.out.println("Julho");
+            break;
+
+            case 8 :         
+            System.out.println("Agosto");
+            break;
+
+            case 9 :         
+            System.out.println("Setembro");
+            break;
+
+            case 10 :         
+            System.out.println("Outubro");
+            break;
+
+            case 11 :         
+            System.out.println("Novembro");
+            break;
+
+            case 12 :         
+            System.out.println("Dezembro");
+            break;
+
+            default:
+            System.out.println("Entrada incorreta");
+        }   
+
+        readline.close();
+    }
+
+    public static void Uni4Exercise24(String[] args)
+    /*Dados 3 valores, escreva um algoritmo que os informe em uma determinada ordem a partir de um menu de opções:
+
+        se opção = 1, escreva os 3 valores em ordem crescente
+        se opção = 2, escreva os 3 valores em ordem decrescente
+        se opção = 3, escreva os 3 valores de forma que o maior valor fique no meio
+    */
+    {
+        Scanner readline = new Scanner(System.in);
+
+        System.out.println("Informe 3 valores:");
+        int valor1 = readline.nextInt();
+        int valor2 = readline.nextInt();
+        int valor3 = readline.nextInt();
+
+        System.out.println("Escolha uma opção:");
+        System.out.println("1 - Ordenar em ordem crescente");
+        System.out.println("2 - Ordenar em ordem decrescente");
+        System.out.println("3 - Colocar o maior valor no meio");
+        int opcao = readline.nextInt();
+
+        if(opcao == 1) 
+        {
+            if(valor1 <= valor2 && valor1 <= valor3) 
+            {
+                System.out.print(valor1 + " ");
+                if(valor2 <= valor3) 
+                {
+                    System.out.print(valor2 + " ");
+                    System.out.println(valor3);
+                } 
+                else 
+                {
+                    System.out.print(valor3 + " ");
+                    System.out.println(valor2);
+                }
+            } 
+            else if(valor2 <= valor1 && valor2 <= valor3) 
+            {
+                System.out.print(valor2 + " ");
+
+                if(valor1 <= valor3) 
+                {
+                    System.out.print(valor1 + " ");
+                    System.out.println(valor3);
+                } 
+                else 
+                {
+                    System.out.print(valor3 + " ");
+                    System.out.println(valor1);
+                }
+            } 
+            else 
+            {
+                System.out.print(valor3 + " ");
+                if(valor1 <= valor2) 
+                {
+                    System.out.print(valor1 + " ");
+                    System.out.println(valor2);
+                } 
+                else 
+                {
+                    System.out.print(valor2 + " ");
+                    System.out.println(valor1);
+                }
+            }
+        } 
+        else if(opcao == 2) 
+        {
+            if(valor1 >= valor2 && valor1 >= valor3) 
+            {
+                System.out.print(valor1 + " ");
+                if(valor2 >= valor3) 
+                {
+                    System.out.print(valor2 + " ");
+                    System.out.println(valor3);
+                } 
+                else
+                {
+                    System.out.print(valor3 + " ");
+                    System.out.println(valor2);
+                }
+            } 
+            else if(valor2 >= valor1 && valor2 >= valor3) 
+            {
+                System.out.print(valor2 + " ");
+                if(valor1 >= valor3) 
+                {
+                    System.out.print(valor1 + " ");
+                    System.out.println(valor3);
+                } 
+                else 
+                {
+                    System.out.print(valor3 + " ");
+                    System.out.println(valor1);
+                }
+            } 
+            else 
+            {
+                System.out.print(valor3 + " ");
+                if(valor1 >= valor2) 
+                {
+                    System.out.print(valor1 + " ");
+                    System.out.println(valor2);
+                } 
+                else 
+                {
+                    System.out.print(valor2 + " ");
+                    System.out.println(valor1);
+                }
+            }
+        } 
+        else if(opcao == 3) 
+        {
+            if(valor1 >= valor2 && valor1 >= valor3) 
+            {
+                if(valor2 >= valor3) 
+                {
+                    System.out.print(valor2 + " ");
+                    System.out.print(valor1 + " ");
+                    System.out.println(valor3);
+                } 
+                else 
+                {
+                    System.out.print(valor3 + " ");
+                    System.out.print(valor1 + " ");
+                    System.out.println(valor2);
+                }
+            }
+        }
+
+        readline.close();
+    }
+
+    public static void Uni4Exercise25(String[] args)
+    /*Faça um algoritmo que escreva o menu abaixo, leia uma opção do usuário e execute a operação correspondente. O algoritmo deve exibir uma mensagem de erro se a opção for inválida. O menu tem as seguintes opções:
+        Escolha uma opção:
+        1 - Soma de dois números.
+        2 - Diferença entre dois números.
+        3 - Produto entre dois números.
+        4 - Divisão entre dois números (o denominador não pode ser zero).*/
+    {
+        Scanner readLine = new Scanner(System.in);
+
+        System.out.print("Digite o primeiro valor: ");
+        double numero1 = readLine.nextDouble();
+        
+        System.out.print("Digite o segundo valor: ");
+        double numero2 = readLine.nextDouble();
+
+        System.out.print(" Digite numero 1 para somar \n Digite numero 2 para subtrair \n Digite numero 3 para multiplicar \n Digite numero 4 para dividir \n");
+        double X = readLine.nextDouble();
+
+        if (X == 1) 
+        {
+            double soma = (numero1 + numero2);
+            System.out.print("O resultado da soma dos numeros é de: " + soma);
+        }
+        else if (X == 2) 
+        {
+            double sub = (numero1 - numero2);
+            System.out.print("O resultado da subtração dos numeros é de: " + sub);
+        }
+        else if (X == 3) 
+        {
+            double mutiplicação = (numero1 * numero2);
+            System.out.print("O resultado da mutiplicação dos numeros é de: " + mutiplicação);
+        }
+        else if (X == 4) 
+        {
+            double div = (numero1 / numero2);
+            System.out.print("O resultado da divisão dos numeros é de: " + div);
+        }
+        else if (X >= 5 || X <= 0) 
+        {
+            System.out.print("O numero digitado não existe nenhuma função");
+        }
+
+        readLine.close();
+    }
+
+    public static void Uni4Exercise26(String[] args)
+    /*Dado um caractere indicando uma opção, escreva um algoritmo para:
+
+        Se opção = ‘T’: calcular a área de um triângulo de base b e altura h
+        Se opção = ‘Q’: calcular a área de um quadrado de lado l
+        Se opção = ‘R’: calcular a área de um retângulo de base b e altura h
+        Se opção = ‘C’: calcular a área de um círculo de raio r*/
+    {
+        Scanner readline = new Scanner(System.in);
+    
+        System.out.println("Escolha uma opção ");
+        System.out.println("T: calcular a área de um triângulo de base b e altura h");
+        System.out.println("Q: calcular a área de um quadrado de lado l");
+        System.out.println("R: calcular a área de um retângulo de base b e altura h");
+        System.out.println("C: calcular a área de um círculo de raio r");
+
+        String letra = readline.nextLine();
+
+        if (letra == "T") 
+        {
+            System.out.println("Digite a base do triângulo: ");
+            double base = readline.nextDouble();
+            System.out.println("Digite a altura do triângulo: ");
+            double altura = readline.nextDouble();
+            System.out.println("Área do triângulo: " + (base * altura) / 2);
+        }
+        else if (letra == "Q") 
+        {
+            System.out.println("Digite o lado: ");
+            double lado = readline.nextDouble();
+            System.out.println("Área do quadrado: " + lado * lado);
+        }
+        else if (letra == "R") 
+        {   
+            System.out.println("Digite a base do retângulo: ");
+            double b = readline.nextDouble();
+            System.out.println("Digite a altura do retângulo: ");
+            double h = readline.nextDouble();
+            System.out.println("Área do retângulo: " + b * h);
+        }
+        else if (letra == "C") 
+        {
+            System.out.println("Digite o raio: ");
+            double r = readline.nextDouble();
+            System.out.println("Área do círculo: " + Math.PI * Math.pow(r, 2));
+        }
+        else
+        {
+            System.out.println("Opção inválida");
+        }
+        readline.close();
     }
 
     public static void Uni4Exercise27(String[] args)
@@ -601,6 +1115,6 @@ public class Unidade4
 
     public static void main(String[] args)
     {    
-        Uni4Exercise18(args);
+        Uni4Exercise27(args);
     }
 }
