@@ -82,6 +82,7 @@ public class Unidade4
     {
         Scanner readline = new Scanner(System.in);
         
+        System.out.println("Insira um número: ");
         double numero = readline.nextDouble(); 
 
         double resto = numero - Math.floor(numero);
@@ -92,7 +93,7 @@ public class Unidade4
         }
         else
         {
-            System.out.println("Foram digitadas casas decimais no número");
+            System.out.println("Não foram digitadas casas decimais no número");
         }
         
         readline.close();
@@ -1115,6 +1116,6 @@ public class Unidade4
 
     public static void main(String[] args)
     {    
-        Uni4Exercise27(args);
+        Uni4Exercise4(args);
     }
 }

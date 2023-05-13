@@ -289,22 +289,68 @@ public class Unidade5
         DecimalFormat df = new DecimalFormat("0");
         int n = 0;
 
-        double numeroFinal = 0;
-        double raiz = 25;
-        double numero1 = 20;
-        double numero2 = 25;
+        int intNumero = 99;
+        String strNumero = "";
+        String stringNmr = "";
+        char strNumero1 = '0';
+        char strNumero2 = '0';
+        char strNumero3 = '0';
+        int raiz = 0;
+        int intNumero1 = 0;
+        int intNumero2 = 0;
+        int qtdCaracteres = 0;
+        double resto = 0;
 
         while(n < 10)
         {
-            while(Math.sqrt(numeroFinal) % 2 == 0)            
+            while((Math.sqrt(intNumero) - Math.floor(Math.sqrt(intNumero))) > 0)            
             {
-                numeroFinal++;
+                resto = (Math.sqrt(intNumero) - Math.floor(Math.sqrt(intNumero)));
+                intNumero++;
             }
 
-            if(((numero1 + numero2) == (numeroFinal / raiz)) && (df.format(numero1)+""+""+df.format(numero2)).equals(""+df.format(numeroFinal)))
+            strNumero = String.valueOf(intNumero);
+            qtdCaracteres = strNumero.length();
+
+            if(qtdCaracteres > 1) 
             {
-                n++;
+                if(qtdCaracteres == 2)
+                {
+                    strNumero1 = strNumero.charAt(0);
+                    strNumero2 = strNumero.charAt(1);
+
+                    intNumero1 = Character.getNumericValue(strNumero1);
+                    intNumero2 = Character.getNumericValue(strNumero2);
+
+                    raiz = intNumero1 + intNumero2;
+
+                    if(raiz*raiz == intNumero)
+                    {
+                        n++;
+                    }
+                }    
+                else if(qtdCaracteres == 3)
+                {
+                    strNumero1 = strNumero.charAt(0);
+                    strNumero2 = strNumero.charAt(1);
+                    strNumero3 = strNumero.charAt(1);
+
+                    stringNmr = strNumero2+""+strNumero3;
+
+
+                    intNumero1 = Character.getNumericValue(strNumero1);
+                    intNumero2 = Integer.parseInt(stringNmr) ;
+
+                    raiz = intNumero1 + intNumero2;
+
+                    if(raiz*raiz == intNumero)
+                    {
+                        n++;
+                    }
+                }    
             }
+
+            intNumero++;
         }
 
         readline.close();
