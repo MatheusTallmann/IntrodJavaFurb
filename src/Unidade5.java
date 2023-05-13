@@ -286,72 +286,127 @@ public class Unidade5
         20 + 25 = 45 => 45² = 2025*/
     {
         Scanner readline = new Scanner(System.in);
-        DecimalFormat df = new DecimalFormat("0");
         int n = 0;
-
-        int intNumero = 99;
+        int intNumero = 1;
         String strNumero = "";
-        String stringNmr = "";
-        char strNumero1 = '0';
-        char strNumero2 = '0';
-        char strNumero3 = '0';
+        String stringNmr1 = "";
+        String stringNmr2 = "";
+        String sequencia = "";
         int raiz = 0;
         int intNumero1 = 0;
         int intNumero2 = 0;
-        int qtdCaracteres = 0;
-        double resto = 0;
+        
 
         while(n < 10)
         {
             while((Math.sqrt(intNumero) - Math.floor(Math.sqrt(intNumero))) > 0)            
             {
-                resto = (Math.sqrt(intNumero) - Math.floor(Math.sqrt(intNumero)));
                 intNumero++;
             }
 
             strNumero = String.valueOf(intNumero);
-            qtdCaracteres = strNumero.length();
 
-            if(qtdCaracteres > 1) 
+            if(strNumero.length() == 2)
             {
-                if(qtdCaracteres == 2)
+                stringNmr1 = strNumero.charAt(0)+"";
+                stringNmr2 = strNumero.charAt(1)+"";
+
+                intNumero1 = Integer.parseInt(stringNmr1);
+                intNumero2 = Integer.parseInt(stringNmr2);
+
+                raiz = intNumero1 + intNumero2;
+
+                if(raiz * raiz == intNumero)
                 {
-                    strNumero1 = strNumero.charAt(0);
-                    strNumero2 = strNumero.charAt(1);
+                    n++;
+                    sequencia = sequencia+n+"º "+strNumero+"\n";
+                } 
+            } 
+            else if(strNumero.length() == 4)
+            {
+                stringNmr1 = strNumero.charAt(0)+""+strNumero.charAt(1);
+                stringNmr2 = strNumero.charAt(2)+""+strNumero.charAt(3);
 
-                    intNumero1 = Character.getNumericValue(strNumero1);
-                    intNumero2 = Character.getNumericValue(strNumero2);
+                intNumero1 = Integer.parseInt(stringNmr1);
+                intNumero2 = Integer.parseInt(stringNmr2);
 
-                    raiz = intNumero1 + intNumero2;
+                raiz = intNumero1 + intNumero2;
 
-                    if(raiz*raiz == intNumero)
-                    {
-                        n++;
-                    }
-                }    
-                else if(qtdCaracteres == 3)
+                if(raiz * raiz == intNumero)
                 {
-                    strNumero1 = strNumero.charAt(0);
-                    strNumero2 = strNumero.charAt(1);
-                    strNumero3 = strNumero.charAt(1);
+                    n++;
+                    sequencia = sequencia+n+"º "+strNumero+"\n";
+                } 
+            }     
+            else if(strNumero.length() == 5)
+            {
+                stringNmr1 = strNumero.charAt(0)+""+strNumero.charAt(1);
+                stringNmr2 = strNumero.charAt(2)+""+strNumero.charAt(3)+""+strNumero.charAt(4);
 
-                    stringNmr = strNumero2+""+strNumero3;
+                intNumero1 = Integer.parseInt(stringNmr1);
+                intNumero2 = Integer.parseInt(stringNmr2);
 
+                raiz = intNumero1 + intNumero2;
 
-                    intNumero1 = Character.getNumericValue(strNumero1);
-                    intNumero2 = Integer.parseInt(stringNmr) ;
+                if(raiz * raiz == intNumero)
+                {
+                    n++;
+                    sequencia = sequencia+n+"º "+strNumero+"\n";
+                } 
+            }  
+            else if(strNumero.length() == 6)
+            {
+                stringNmr1 = strNumero.charAt(0)+""+strNumero.charAt(1)+""+strNumero.charAt(2);
+                stringNmr2 = strNumero.charAt(3)+""+strNumero.charAt(4)+""+strNumero.charAt(5);
 
-                    raiz = intNumero1 + intNumero2;
+                intNumero1 = Integer.parseInt(stringNmr1);
+                intNumero2 = Integer.parseInt(stringNmr2);
 
-                    if(raiz*raiz == intNumero)
-                    {
-                        n++;
-                    }
-                }    
+                raiz = intNumero1 + intNumero2;
+
+                if(raiz * raiz == intNumero)
+                {
+                    n++;
+                    sequencia = sequencia+n+"º "+strNumero+"\n";
+                } 
             }
+            else if(strNumero.length() == 7)
+            {
+                stringNmr1 = strNumero.charAt(0)+""+strNumero.charAt(1)+""+strNumero.charAt(2);
+                stringNmr2 = strNumero.charAt(3)+""+strNumero.charAt(4)+""+strNumero.charAt(5)+strNumero.charAt(6);
 
+                intNumero1 = Integer.parseInt(stringNmr1);
+                intNumero2 = Integer.parseInt(stringNmr2);
+
+                raiz = intNumero1 + intNumero2;
+
+                if(raiz * raiz == intNumero)
+                {
+                    n++;
+                    sequencia = sequencia+n+"º "+strNumero+"\n";
+                } 
+            }
+            else if(strNumero.length() == 8)
+            {
+                stringNmr1 = strNumero.charAt(0)+""+strNumero.charAt(1)+""+strNumero.charAt(2)+strNumero.charAt(3);
+                stringNmr2 = strNumero.charAt(4)+""+strNumero.charAt(5)+""+strNumero.charAt(6)+strNumero.charAt(7);
+
+                intNumero1 = Integer.parseInt(stringNmr1);
+                intNumero2 = Integer.parseInt(stringNmr2);
+
+                raiz = intNumero1 + intNumero2;
+
+                if(raiz * raiz == intNumero)
+                {
+                    n++;
+                    sequencia = sequencia+n+"º "+strNumero+"\n";
+                } 
+            }
+            
             intNumero++;
         }
+
+        System.out.println("Estes são os 10 primeiros números naturais que apresentam esta particularidade:\n"+sequencia);
 
         readline.close();
     }
