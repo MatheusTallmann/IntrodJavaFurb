@@ -285,7 +285,6 @@ public class Unidade5
         
         20 + 25 = 45 => 45² = 2025*/
     {
-        Scanner readline = new Scanner(System.in);
         int n = 0;
         int intNumero = 1;
         String strNumero = "";
@@ -408,11 +407,68 @@ public class Unidade5
 
         System.out.println("Estes são os 10 primeiros números naturais que apresentam esta particularidade:\n"+sequencia);
 
-        readline.close();
+    }
+
+    public static void Uni5Exercise11(String[] args)
+    /*Uma máquina de biscoito está com problemas. Quando ligada, após 1 hora ela quebra 1 biscoito, na segunda hora ela quebra 3 biscoitos, 
+    na hora seguinte ela quebra 3 vezes a quantidade de biscoitos quebrados na hora anterior, e assim por diante. 
+    Faça um algoritmo que calcule quantos biscoitos são quebrados no final de cada dia (a máquina opera 16 horas por dia).*/
+    {
+        int biscoitoQuebrado = 0;
+        int horaAnterior = 0;
+
+        for (int i = 0; i < 16; i++) /*i = horas*/ 
+        {
+            if(i == 0)
+            {
+                biscoitoQuebrado++;
+            }
+            else if(i == 1)
+            {
+                biscoitoQuebrado = biscoitoQuebrado + 3;
+                horaAnterior = 3;
+            }
+            else
+            {
+                biscoitoQuebrado = biscoitoQuebrado + (horaAnterior * 3);
+                horaAnterior = (horaAnterior * 3);
+            }
+        }        
+
+
+        System.out.println("Total de biscoitos quebrados por dia: "+biscoitoQuebrado);    
+
+    }
+
+    public static void Uni5Exercise12(String[] args)
+    /*Escreva um programa que leia um número inteiro positivo n e em seguida imprima n linhas do chamado Triangulo de Floyd:
+      1
+      2  3 
+      4  5  6
+      7  8  9  10
+      11 12 13 14 15
+    */
+    {
+        int n = 0;
+        int numero = 1;
+        int numeroAnterior = 0;
+        String triangulo = "";
+      
+        for(int i = 0; i < n;) 
+        {
+            while(numeroAnterior < numero)
+            {
+                triangulo = triangulo+numero+"\n";
+                
+            }
+        }
+
+        System.out.println(triangulo);    
+
     }
 
     public static void main(String[] args)
     {    
-        Uni5Exercise10(args);
+        Uni5Exercise12(args);
     }
 }
