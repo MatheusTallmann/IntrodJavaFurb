@@ -449,26 +449,84 @@ public class Unidade5
       11 12 13 14 15
     */
     {
-        int n = 0;
+        Scanner readline = new Scanner(System.in);
         int numero = 1;
-        int numeroAnterior = 0;
+        int qtdRepeticoes = 1;
         String triangulo = "";
+
+        System.err.println("Informe a quantidade de linhas:");
+        int n = readline.nextInt();   
       
-        for(int i = 0; i < n;) 
+        for(int i = 0; i < n; i++) 
         {
-            while(numeroAnterior < numero)
+            for(int j = 0; j < qtdRepeticoes; j++) 
             {
-                triangulo = triangulo+numero+"\n";
-                
+                if(numero > 9)
+                {
+                    triangulo = triangulo+" "+numero;    
+                }
+                else
+                {
+                    triangulo = triangulo+"  "+numero;
+                }
+                numero++;                
             }
+            triangulo = triangulo+"\n";
+            qtdRepeticoes++;
         }
 
         System.out.println(triangulo);    
 
+        readline.close();
+    }
+
+    public static void Uni5Exercise13(String[] args)
+    /*Um motorista acaba de voltar de um feriado prolongado. Antes de sair de viagem e imediatamente após retornar, 
+      o motorista encheu o tanque do veículo e registrou as medidas do odômetro. Em cada parada feita durante a viagem, 
+      foi registrado o valor do odômetro e a quantidade de combustível comprado para reabastecer o veículo (suponha que o tanque foi enchido a cada parada). 
+      Descreva um algoritmo que leia o número total de reabastecimentos feitos e os dados registrados relativos à compra de combustível. Calcule e escreva:
+
+        * A quilometragem obtida por litro de combustível em cada parada;
+        * A quilometragem média obtida por litro de combustível em toda a viagem.
+    */
+    {
+        Scanner readline = new Scanner(System.in);
+        DecimalFormat df = new DecimalFormat("0.##");
+        
+        double qtdLitros = 0;
+        double kmsRodados = 0;
+        double soma = 0;
+        double media = 0;
+        String resultado = "";
+
+        System.err.println("Informe a quantidade de paradas:");
+        int qtdParadas = readline.nextInt();   
+      
+        for(int i = 1; i < (qtdParadas+1); i++) 
+        {
+           System.err.println("Informe a quantidade de litros abastecidos na "+i+"ª parada: "); 
+           qtdLitros = readline.nextInt();
+
+           System.err.println("Informe a quantidade de Kms rodados até a "+i+"ª parada: "); 
+           kmsRodados = readline.nextInt();
+
+           media = kmsRodados / qtdLitros;
+           soma = soma + media;
+
+           resultado = resultado+"Quilometragem obtida por litro até a "+i+"ª parada: "+df.format(media)+" litros\n";
+        }
+
+        media = soma / qtdParadas;
+
+        resultado = resultado+"Quilometragem obtida por litro em toda a viagem: "+df.format(media)+" litros\n";
+
+        System.out.println(resultado);    
+
+        readline.close();
     }
 
     public static void main(String[] args)
     {    
-        Uni5Exercise12(args);
+        Uni5Exercise13(args);
     }
 }
