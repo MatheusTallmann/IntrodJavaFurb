@@ -525,6 +525,28 @@ public class Unidade5
         readline.close();
     }
 
+    public static void Uni5Exercise14(String[] args)
+    /*Um comerciante deseja fazer um levantamento do lucro das 20 mercadorias que comercializa. Para cada mercadoria ele tem o nome, 
+        o preço de compra (PC) e o preço de venda (PV). Descreva um algoritmo que:
+
+        * Escreva quantas mercadorias proporcionam: (lucro < 10%), (10% <= lucro <= 20%) e (lucro > 20%), onde o percentual de lucro é calculado da seguinte forma:
+            % = (PV - PC) / PC * 100;
+        * Determine e escreva o valor total de compra e de venda de todas as mercadorias, assim como o lucro total.
+    */
+    {
+        Scanner readline = new Scanner(System.in);
+        DecimalFormat df = new DecimalFormat("0.##");
+        
+        double mercadoria = 0;
+        double precoCompra = 0;
+        double precoVenda = 0;
+        double lucro = 0;
+        String resultado = "";
+ 
+
+        readline.close();
+    }
+
     public static void main(String[] args)
     {    
         Uni5Exercise13(args);
