@@ -535,20 +535,57 @@ public class Unidade5
     */
     {
         Scanner readline = new Scanner(System.in);
-        DecimalFormat df = new DecimalFormat("0.##");
-        
-        double mercadoria = 0;
+        DecimalFormat df = new DecimalFormat("###,###.00");
+                
         double precoCompra = 0;
+        double precoCompraTotal = 0;
         double precoVenda = 0;
+        double precoVendaTotal = 0;
         double lucro = 0;
-        String resultado = "";
+        double lucroTotal = 0;
+        int lucro10 = 0;
+        int lucro10_20 = 0;
+        int lucroMais20 = 0;
  
+        for(int i = 0; i < 3; i++) 
+        {
+            System.err.println("Insira o valor de compra: ");
+            precoCompra = readline.nextDouble();
+            System.err.println("Insira o valor de venda: ");
+            precoVenda = readline.nextDouble();
+
+            lucro = (precoVenda - precoCompra) / precoCompra * 100;
+
+            if(lucro < 10) 
+            {
+                lucro10++;
+            }
+            else if(lucro >= 10 && lucro < 20)
+            {
+                lucro10_20++;
+            }
+            else
+            {
+                lucroMais20++;
+            }
+
+            precoCompraTotal = precoCompraTotal + precoCompra;
+            precoVendaTotal = precoVendaTotal + precoVenda;
+            lucroTotal = lucroTotal + (precoVenda - precoCompra);
+        }
+
+        System.err.println("\n"+lucro10+" Mercadorias proporcionam um lucro de até 10%");
+        System.err.println(lucro10_20+" Mercadorias proporcionam um lucro entre 10% e 20%");
+        System.err.println(lucroMais20+" Mercadorias proporcionam um lucro maior que 20%");
+        System.err.println("\nValor total em compras: R$"+df.format(precoCompraTotal));
+        System.err.println("Valor total em vendas: R$"+df.format(precoVendaTotal));
+        System.err.println("Lucro total: R$"+df.format(lucroTotal));
 
         readline.close();
     }
 
     public static void main(String[] args)
     {    
-        Uni5Exercise13(args);
+        Uni5Exercise14(args);
     }
 }
